@@ -1,0 +1,117 @@
+
+@charset "UTF-8";
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(68, 56, 47);
+    font-size: 20px;
+}
+@font-face {
+    font-family:'droid';
+    src: url('fontes/idroid.otf');
+}
+
+html { background-color: rgb(104, 86, 72) } 
+body {
+    
+    max-width: 1080px;
+    min-height: 1920px;
+    background-color: papayawhip; 
+    margin: auto;
+}
+
+header#menu {
+    background-image:linear-gradient(to bottom, rgb(255, 255, 186), rgb(211, 149, 149)) ;
+    padding: 10px 10px 10px 60px;
+    margin: 0px;
+    white-space: nowrap;
+    height: 300px;
+    color: rgb(104, 86, 72);
+}
+h1.curiosidade {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 50px;
+}
+nav {
+    margin-top: 70px;
+    font-size: 20px;
+    font-weight: bold;
+}
+a:link {
+    margin: 5px 5px 5px 0px;
+    padding: 20px;
+    text-decoration: none;
+    border: 2px solid;
+    
+}
+a:hover {
+    background-color: rgb(255, 228, 138);
+     border: 2px solid white;
+     transition-duration: .5s;
+    }
+a {
+    color: rgb(104, 86, 72);
+}
+
+p.curiosidade2 {
+    font-size: 24px;
+    text-align: center;
+}
+
+h1.subtexto {
+    font-family: 'droid';
+    font-size: 36px;
+}
+main#principal {
+    max-width: 75%;
+    margin: auto;
+}
+
+img.bugdroid {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+iframe {
+    display: block;
+    margin: auto;
+    min-width: 100%;
+    min-height: 315px;
+}
+
+aside {
+    max-width: 80%;
+    background-color: rgb(211, 149, 149);
+    margin: auto;
+    padding: 10px 10px 10px 10px;
+    border-radius: 10px;
+    
+}
+h1.mais {
+    background-color: rgb(255, 255, 186) ;
+    margin: 0px 0px 0px 0px;
+   padding: 10px 10px 10px 10px;
+   border-radius: 10px;
+}
+ul.colunas {
+    padding: 10px 10px 10px 10px;
+    margin: 15px;
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+  }
+ p.ultimo {
+    max-width: 75%;
+    margin: auto;
+    padding: 10px;
+ }
+ article#extra {
+    margin: auto;
+    text-align: center;
+ }
+ footer {
+    text-align: center;
+    margin: auto;
+    background-color: rgb(211, 149, 149);
+ }
