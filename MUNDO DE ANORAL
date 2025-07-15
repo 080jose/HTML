@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Para Onde Você Iria? – A Garota do Sonho</title>
+  <style>
+    body {
+      background: linear-gradient(#1c0033, #000000);
+      color: #f5f5f5;
+      font-family: 'Courier New', monospace;
+      padding: 30px;
+      text-align: center;
+    }
+    h1 {
+      color: gold;
+      font-size: 32px;
+      text-shadow: 2px 2px violet;
+    }
+    .question {
+      font-size: 20px;
+      margin: 30px 0;
+      color: violet;
+    }
+    .answers button {
+      background: black;
+      color: gold;
+      border: 2px solid violet;
+      font-size: 16px;
+      margin: 10px;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-family: 'Courier New', monospace;
+      transition: all 0.3s;
+    }
+    .answers button:hover {
+      background: violet;
+      color: black;
+    }
+    .result {
+      font-size: 24px;
+      margin-top: 50px;
+      color: gold;
+    }
+    .pixel {
+      image-rendering: pixelated;
+    }
+  </style>
+</head>
+<body>
+  <h1>⚡ PARA ONDE VOCÊ IRIA? ⚡<br>A Garota do Sonho – Quiz Interdimensional</h1>
+  <div id="quiz"></div>
+  <div class="result" id="result"></div>
+
+  <script>
+    const questions = [
+      {
+        text: "Ao acordar de um sonho estranho, você sente:",
+        answers: {
+          A: "Paz absoluta, como se tudo tivesse feito sentido.",
+          B: "Desejo de voltar pro sonho e quebrar as regras.",
+          C: "Dor de cabeça e desespero pela rotina.",
+          D: "Que nada disso importa." 
+        }
+      },
+      {
+        text: "Diante de uma escolha moral impossível, você:",
+        answers: {
+          A: "Pede ao Sol que decida por você.",
+          B: "Foge para um lugar onde possa escolher livre.",
+          C: "Aceita a dor como castigo da vida.",
+          D: "Não escolhe. Apenas desliga."
+        }
+      },
+      {
+        text: "Quando falam do 'Mundo da Lua', você sente:",
+        answers: {
+          A: "Medo e desrespeito ao Sol.",
+          B: "Curiosidade e liberdade.",
+          C: "Tristeza e cansaço.",
+          D: "Vontade de nunca mais existir."
+        }
+      },
+      {
+        text: "Você acredita que:",
+        answers: {
+          A: "O Sol sabe o que fazer.",
+          B: "Cada um deve seguir seu próprio brilho.",
+          C: "A vida é uma longa punição.",
+          D: "Tudo deveria acabar logo."
+        }
+      }
+    ];
+
+    let currentQuestion = 0;
+    let scores = { A: 0, B: 0, C: 0, D: 0 };
+
+    function showQuestion() {
+      const q = questions[currentQuestion];
+      const container = document.getElementById('quiz');
+      container.innerHTML = `<div class="question"><strong>${q.text}</strong></div>`;
+      const answersDiv = document.createElement('div');
+      answersDiv.classList.add('answers');
+
+      for (let letter in q.answers) {
+        const btn = document.createElement('button');
+        btn.textContent = q.answers[letter];
+        btn.onclick = () => {
+          scores[letter]++;
+          currentQuestion++;
+          if (currentQuestion < questions.length) {
+            showQuestion();
+          } else {
+            showResult();
+          }
+        };
+        answersDiv.appendChild(btn);
+      }
+
+      container.appendChild(answersDiv);
+    }
+
+    function showResult() {
+      const resultDiv = document.getElementById('result');
+      const max = Object.entries(scores).reduce((a, b) => a[1] > b[1] ? a : b)[0];
+
+      let message = "";
+      switch (max) {
+        case "A":
+          message = "🌞 Você pertence ao MUNDO DO SOL (ANORAK) — O Sol é justo. Viva no brilho eterno.";
+          break;
+        case "B":
+          message = "🌘 Você vai para o MUNDO DA LUA — Terra livre dos desviantes, sonhadores e heréticos. Siga seu caos.";
+          break;
+        case "C":
+          message = "🌍 Você está preso no MUNDO TERRENO — Inferno cotidiano da carne e da rotina. Força.";
+          break;
+        case "D":
+          message = "🕳️ Você foi para a NÃO-EXISTÊNCIA — O esquecimento eterno te recebeu. Você nunca esteve aqui.";
+          break;
+      }
+
+      resultDiv.innerHTML = `<p>${message}</p>`;
+      document.getElementById('quiz').innerHTML = "";
+    }
+
+    showQuestion();
+  </script>
+</body>
+</html>
